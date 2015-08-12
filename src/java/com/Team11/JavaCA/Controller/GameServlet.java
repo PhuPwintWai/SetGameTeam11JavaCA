@@ -99,13 +99,13 @@ public class GameServlet extends HttpServlet {
         return gameService.toJson().toString();
     }
 
-    @GET
-    @Produces("application/json")
-    @Path("/createNewGame")
-    public String createNewGame() {
-        Game game = gameService.createGame(new User("demo"));
-        return game.toJson().toString();
-    }
+//    @GET
+//    @Produces("application/json")
+//    @Path("/createNewGame")
+//    public String createNewGame() {
+//        Game game = gameService.createGame(new User("demo"));
+//        return game.toJson().toString();
+//    }
 
     @GET
     @Produces("application/json")

@@ -1,3 +1,4 @@
+
 .img-thumbnail
 {
     height: 350px !important;
@@ -5,6 +6,73 @@
 
 .ui-mobile a img, .ui-mobile fieldset{
     border-radius: 14px;
+}
+
+ #games
+ {
+     border: 0px;
+        
+        border-spacing: 0px;
+        
+  }
+  
+img{
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.ui-header-fixed .ui-btn, .ui-footer-fixed .ui-btn{
+    color: #286090;
+}
+
+
+/*.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+    color : #008b8b;
+}*/
+.ui-header ui-bar-inherit ui-header-fixed slidedown{
+    color : #7FC5C5;
+}
+.ui-page { 
+background: #7FC5C5;
+}
+.ui-mobile .type-home .ui-content{
+/*    background-image: "img/backgroundblack.jpg";
+    background-repeat: repeat-x;*/
+
+}
+
+.ui-bar-a {
+    border-width: 0px;
+    
+    background-color: #F9F9F9;
+}
+#setTable{
+    border: 0px;
+}
+#setTable>tbody>tr>td>img{
+    width: 50px;
+    height: 50px;
+}
+
+
+
+.thumbnail{
+    background-color: transparent;
+    border: 0px;
+}
+
+.img-responsive{
+    border-radius: 10px;
+}
+#table>tbody>tr>td>input {
+    width: 100px;
+     height: 80px; 
+    vertical-align: middle;
+    margin: 20px;
+    border-radius: 10px;
+}
+.container text-center{
+    
 }
 
 

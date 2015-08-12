@@ -1,9 +1,9 @@
 /* A bit custom styling */
 .my-page .ui-listview li .ui-btn p {
-    color: #c0c0c0;
+    color: #286090;
 }
 .my-page .ui-listview li .ui-btn .ui-li-aside {
-    color: #eee;
+    color: #286090;
 }
 /* First breakpoint is 48em (768px). 3 column layout. Tiles 250x250 pixels incl. margin at the breakpoint. */
 @media ( min-width: 48em ) {
@@ -133,3 +133,7 @@
     }
 }
 /* For this demo we used images with a size of 310x310 pixels. Just before the second breakpoint the images reach their max width: 1019px - 2 x 9px padding = 1001px x 30.9333% = ~310px */
+
+
+
+    

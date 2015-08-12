@@ -60,6 +60,7 @@ function showCurrentGame() {
                 .done(function (data) {
                     $("#id_current_game").empty();
                     $("#id_current_game").append(currentGame);
+                   
                     showCardsOnTable("#games", data.cards);
                     showCardsOnTable("#setTable", data.setCards);
                 }).fail(function () {
@@ -86,18 +87,13 @@ function showAllExistingGames() {
 }
 
 function addNewGameItem(game) {
-//    var listItem = "<li><a id='" + game.id + "' href='#'>"
-//            + "<h2>" + game.id + "</h2>"
-//            + "<p>" + game.creator + "</p>"
-//            + "<p>" + game.date + "</p>"
-//            + "</a></li>";
-//    return listItem;
+
     var list = $("#existingGameList");
     var listItem = "";
 
     listItem += ("<li onclick='show(" + game.id + ")'>");
     listItem += ("<a href='#'>");
-    listItem += ("<h1>" + game.description + "("+game.id+ ")</h1>");
+    listItem += ("<h1>" + game.description +")</h1>");
     listItem += ("<p> Maximum Players : " + game.maximumPlayer+ "</p>");
     listItem += ("<p> Created By : " + game.creator + "</p>");
     listItem += ("<p> Created Date :" + game.date + "</p>");
