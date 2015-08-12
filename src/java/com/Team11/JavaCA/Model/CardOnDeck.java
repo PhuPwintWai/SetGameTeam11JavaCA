@@ -37,7 +37,7 @@ public class CardOnDeck {
     }
 
     public CardOnDeck shuffleCards() {
-        Collections.shuffle(Arrays.asList(gameCards));
+        //Collections.shuffle(Arrays.asList(gameCards));
         return this;
     }
 
