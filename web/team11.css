@@ -1,0 +1,11 @@
+.img-thumbnail
+{
+    height: 350px !important;
+}
+
+.ui-mobile a img, .ui-mobile fieldset{
+    border-radius: 14px;
+}
+
+
+
