@@ -1,10 +1,10 @@
 package com.Team11.JavaCA.Controller;
 
 import com.Team11.JavaCA.Model.Card;
-import com.Team11.JavaCA.Model.CardOnDeck;
+import com.Team11.JavaCA.Model.Desk;
 import com.Team11.JavaCA.Model.Game;
 import com.Team11.JavaCA.Model.User;
-import com.Team11.JavaCA.Service.GameService;
+import com.Team11.JavaCA.Service.SetGameService;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.json.Json;
@@ -25,7 +25,7 @@ import javax.ws.rs.core.UriInfo;
 public class GameServlet extends HttpServlet {
 
     @Inject
-    private GameService gameService;
+    private SetGameService gameService;
      
     @POST
     @Path("/login")
@@ -111,7 +111,7 @@ public class GameServlet extends HttpServlet {
     @Produces("application/json")
     @Path("/getAllCards")
     public String showAllCards() {
-        CardOnDeck cardOnDeck = new CardOnDeck();
+        Desk cardOnDeck = new Desk();
         cardOnDeck.getCards();
         JsonObjectBuilder results = Json.createObjectBuilder();
         JsonArrayBuilder cards = Json.createArrayBuilder();
@@ -128,7 +128,7 @@ public class GameServlet extends HttpServlet {
     @Produces("application/json")
     @Path("/getShuffleCards")
     public String showShuffleCards() {
-        CardOnDeck cardOnDeck = new CardOnDeck();
+        Desk cardOnDeck = new Desk();
         cardOnDeck.getCards().shuffleCards();
         JsonObjectBuilder results = Json.createObjectBuilder();
         JsonArrayBuilder cards = Json.createArrayBuilder();

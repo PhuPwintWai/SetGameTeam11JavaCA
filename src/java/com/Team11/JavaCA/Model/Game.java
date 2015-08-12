@@ -11,7 +11,7 @@ public class Game {
     private String id;
     private Date createdDate;
     private String creator;
-    private CardOnTable cardOnTable;
+    private Table cardOnTable;
     private String description;
     private int maximumPlayer;
 
@@ -34,11 +34,11 @@ public class Game {
     public Game(){
         
     }
-    public CardOnTable getCardOnTable() {
+    public Table getCardOnTable() {
         return cardOnTable;
     }
 
-    public void setCardOnTable(CardOnTable cardOnTable) {
+    public void setCardOnTable(Table cardOnTable) {
         this.cardOnTable = cardOnTable;
     }
 
@@ -68,7 +68,7 @@ public class Game {
     
     public Game(String creator) {
         id = Long.toString(Calendar.getInstance().getTimeInMillis());
-        cardOnTable = new CardOnTable();
+        cardOnTable = new Table();
         createdDate = Calendar.getInstance().getTime();
         this.creator = creator;
     }

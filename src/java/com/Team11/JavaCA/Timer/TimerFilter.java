@@ -7,9 +7,9 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 
 @WebFilter(urlPatterns={"/*"})
-public class RequestTimerFilter implements Filter {
+public class TimerFilter implements Filter {
    private static final Logger logger
-           = Logger.getLogger(RequestTimerFilter.class.getName());
+           = Logger.getLogger(TimerFilter.class.getName());
  
    @Override
    public void init(FilterConfig config) throws ServletException {

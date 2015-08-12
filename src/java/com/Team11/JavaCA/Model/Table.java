@@ -1,6 +1,6 @@
 package com.Team11.JavaCA.Model;
 
-public class CardOnTable {
+public class Table {
 
     public Card[] tableCard = new Card[12];
     public Card[] setGameCard= new Card[81];
@@ -9,9 +9,9 @@ public class CardOnTable {
 
     int deckArray;
 
-    CardOnDeck deck = new CardOnDeck();
+    Desk deck = new Desk();
 
-    public CardOnTable() {
+    public Table() {
         deck.getCards().shuffleCards();
         for (deckArray = 0; deckArray < tableCard.length; deckArray++) {
             tableCard[deckArray] = deck.gameCards[deckArray];
@@ -19,7 +19,7 @@ public class CardOnTable {
         }
     }
 
-    public CardOnTable showOnTable(boolean shuffle) {
+    public Table showOnTable(boolean shuffle) {
         if (shuffle) {
             deck.getCards().shuffleCards();
             for (deckArray = 0; deckArray < tableCard.length; deckArray++) {

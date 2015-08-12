@@ -13,11 +13,11 @@ import javax.json.JsonObjectBuilder;
 
 
 @ApplicationScoped
-public class GameServiceImpl implements GameService{
+public class SetGameServiceImpl implements SetGameService{
     private final HashMap<String, Game> games = new HashMap<>();
     private final HashMap<String, User> users= new HashMap<>();
     
-    public GameServiceImpl(){
+    public SetGameServiceImpl(){
         
     }
     @Override

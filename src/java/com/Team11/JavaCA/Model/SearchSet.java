@@ -1,7 +1,7 @@
 package com.Team11.JavaCA.Model;
 
 
-public class SetEngine {
+public class SearchSet {
     public boolean isSet(Card a, Card b, Card c) {
         if (!((a.getNumber() == b.getNumber()) && (b.getNumber() == c.getNumber()) ||
                 (a.getNumber() != b.getNumber()) && (a.getNumber() != c.getNumber()) && (b.getNumber() != c.getNumber()))) {

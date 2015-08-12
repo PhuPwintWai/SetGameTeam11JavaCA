@@ -13,7 +13,7 @@ $(document).ready(function () {
                 url = $form.attr("action");
         var data = {description: description, maximumPlayer: maximumPlayer, creator : currentUser};
 
-        alert(JSON.stringify(data));
+       
         // Send the data using post
         $.ajax({
             type: "POST"
@@ -24,7 +24,7 @@ $(document).ready(function () {
         }).done(function (data) {
             console.log(data);
             if (data.success === true) {
-                $.mobile.navigate( "#page_dashboard" );
+                $.mobile.navigate( "#game_list_page" );
                 showAllExistingGames();
             }
         }).fail(function (data) {
@@ -55,7 +55,7 @@ function show(gameId) {
 
 function showCurrentGame() {
     if (currentGame) {
-        $.mobile.navigate("#page_commonview");
+        $.mobile.navigate("#palygame_page");
         $.getJSON("api/cardsOnTable/getTableCards/?id=" + currentGame)
                 .done(function (data) {
                     $("#id_current_game").empty();
@@ -73,13 +73,11 @@ function showCurrentGame() {
 function showAllExistingGames() {
     $.getJSON("api/game/getExistingGames/")
             .done(function (data) {
-                // To clear all rows inside the table
                 $("#existingGameList").empty();
                 for (var index = 0, indexLength = data.games.length; index < indexLength; index++) {
                     var game = data.games[index];
                     addNewGameItem(game);
                 }
-                //$('#existingGameList').listview();
                 $('#existingGameList').listview('refresh');
             }).fail(function () {
         Console.log("Not Found");
@@ -93,11 +91,10 @@ function addNewGameItem(game) {
 
     listItem += ("<li onclick='show(" + game.id + ")'>");
     listItem += ("<a href='#'>");
-    listItem += ("<h1>" + game.description +")</h1>");
+    listItem += ("<h1>" + game.description +"</h1>");
     listItem += ("<p> Maximum Players : " + game.maximumPlayer+ "</p>");
     listItem += ("<p> Created By : " + game.creator + "</p>");
     listItem += ("<p> Created Date :" + game.date + "</p>");
-//  listItem += ("<button class='btnShow' value='" + game.id + "' onclick='show(" + game.id + ")'>Show</button>");
     listItem += ("</a>");
     listItem += ("</li>");
     list.append($(listItem));
@@ -123,9 +120,7 @@ function showCardsOnTable(tableId, cards) {
 
 
 function drawRow(cardData, row) {
-    //onClick='checkGameRules("+cardData.imageUrl+")'
     var cell = "<a id='" + cardData.id + "' onclick='checkGameRules(this.id)'><img src='" + cardData.imageUrl + "'/></a>";
-
     row.append($("<td>" + cell + "</td>"));
     console.log(cardData.imageUrl);
     var i = 0;
@@ -173,28 +168,6 @@ function checkGameRules(id) {
             console.log("Not Found");
         });
     }
-//    console.log(selectedCount);
-//    if (selectedCount < 3) {
-//        imageurl[selectedCount] = id;
-//        console.log(imagefirsturl.length);
-//
-////to get original index of the original array
-//        for (var i = 0; i <= imagefirsturl.length; i++) {
-//            var selectedCountt = 0;
-//            if (imagefirsturl[i].toString() === imageurl[selectedCount].toString()) {
-//                imageurlpointingplace[selectedCountt] = i;
-//                console.log(imageurlpointingplace.toString());
-//                selectedCountt++;
-//            }
-//        }
-//        //
-//        console.log(imageurl[selectedCount]);
-//    }
-//    else {
-//        alert("" + imageurlpointingplace[0] + imageurlpointingplace[1] + imageurlpointingplace[2] + "You have chosen three times");
-//    }
-//    selectedCount++;
-//    return;
 }
 
 $(function () {
@@ -229,7 +202,7 @@ $(function () {
     });
 
     $("#btnNewGame").on("click", function () {
-      $.mobile.navigate( "#page_gameEntry" );      
+      $.mobile.navigate( "#creategame_page" );      
     });
     
     $("#btnRefresh").on("click", function () {
@@ -238,7 +211,7 @@ $(function () {
     
     $("#id_back_to_dashboard").on("click", function () {
         currentGame=null;
-        $.mobile.navigate("#page_dashboard");
+        $.mobile.navigate("#game_list_page");
     });
 });
 

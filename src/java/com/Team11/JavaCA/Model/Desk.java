@@ -4,11 +4,11 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class CardOnDeck {
+public class Desk {
 
     public Card[] gameCards = new Card[81];
 
-    public CardOnDeck getCards() {
+    public Desk getCards() {
 
         int counter = 0;
         String imageUrl;
@@ -36,8 +36,8 @@ public class CardOnDeck {
         return this;
     }
 
-    public CardOnDeck shuffleCards() {
-        //Collections.shuffle(Arrays.asList(gameCards));
+    public Desk shuffleCards() {
+        Collections.shuffle(Arrays.asList(gameCards));
         return this;
     }
 

@@ -1,11 +1,11 @@
 package com.Team11.JavaCA.Controller;
 
 import com.Team11.JavaCA.Model.Card;
-import com.Team11.JavaCA.Model.CardOnTable;
+import com.Team11.JavaCA.Model.Table;
 import com.Team11.JavaCA.Model.Game;
-import com.Team11.JavaCA.Model.SetEngine;
-import com.Team11.JavaCA.Service.GameService;
-import com.Team11.JavaCA.Service.GameServiceImpl;
+import com.Team11.JavaCA.Model.SearchSet;
+import com.Team11.JavaCA.Service.SetGameService;
+import com.Team11.JavaCA.Service.SetGameServiceImpl;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.json.Json;
@@ -24,20 +24,20 @@ import javax.ws.rs.core.UriInfo;
 public class TableServlet extends HttpServlet {
 
     @Inject
-    GameServiceImpl gameService;
+    SetGameServiceImpl gameService;
 
     @GET
     @Produces("application/json")
     @Path("/getTableCards")
     public String showTableCards(@Context UriInfo info) {
-        CardOnTable cardOnTable = null;
+        Table cardOnTable = null;
         String id = info.getQueryParameters().getFirst("id");
         if (id != null) {
             Game game = (gameService.getGame(id));
             cardOnTable = game.getCardOnTable();
             cardOnTable.showOnTable(false);
         } else {
-            cardOnTable = new CardOnTable();
+            cardOnTable = new Table();
             cardOnTable.showOnTable(true);
         }
         //cardOnDeck.getCards();
@@ -66,7 +66,7 @@ public class TableServlet extends HttpServlet {
     @Produces("application/json")
     @Path("/checkTableCards")
     public String checkTableCards(@Context UriInfo info) {
-        CardOnTable cardOnTable = null;
+        Table cardOnTable = null;
         String gameId = info.getQueryParameters().getFirst("id");
         int cardId1 = Integer.parseInt(info.getQueryParameters().getFirst("card1").toString());
         int cardId2 = Integer.parseInt(info.getQueryParameters().getFirst("card2").toString());
@@ -86,7 +86,7 @@ public class TableServlet extends HttpServlet {
             Card card2 = cardOnTable.getCardOnTable(cardId2);
             Card card3 = cardOnTable.getCardOnTable(cardId3);
             if (card1 != null && card2 != null & card3 != null) {
-                SetEngine setEngine = new SetEngine();
+                SearchSet setEngine = new SearchSet();
                 valid = setEngine.isSet(card1, card2, card3);
                 if (valid == true) {
                     //Remove the 3 cards and Replace the 3 cards at the same place

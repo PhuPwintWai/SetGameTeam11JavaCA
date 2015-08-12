@@ -7,7 +7,7 @@ import java.util.Collection;
 
 
 
-public interface GameService extends  BaseService {
+public interface SetGameService extends  BaseService {
 
     public boolean addUser(User user);
     public boolean isValid(User user);
