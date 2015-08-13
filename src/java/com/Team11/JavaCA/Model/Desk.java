@@ -37,7 +37,7 @@ public class Desk {
     }
 
     public Desk shuffleCards() {
-        Collections.shuffle(Arrays.asList(gameCards));
+        //Collections.shuffle(Arrays.asList(gameCards));
         return this;
     }
 
